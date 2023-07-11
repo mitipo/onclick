@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onclick 연습</title>
+</head>
+<body>
+    <button onclick="sayHello()">안녕</button>
+    <button onclick="showAlert()">경고</button>
+    <!-- 요소나타내고가리기 -->
+    <button onclick="showElement()">나타내기</button>
+    <button onclick="hideElement()">숨기기</button>    
+    <div id="myElement" style="display: none;">
+        이 요소를 나타내기/숨기기 합니다.
+    </div>
+    <!-- 토글 -->
+    <button onclick="toggleVisibility()">토글on/off</button>
+    <div id="myElement2" style="display: none;">
+        이 요소의 가시성을 토글합니다.
+    </div>
+    <!-- 토글이미지 -->
+    <button onclick="toggleImage()">토글이미지on/off</button>
+    <img id="myImage2" src="images/cat3.jpg" alt="" style="display: none;"">
+    <!-- 이미지변경 -->
+    <button onclick="changeImg()">이미지변경</button>
+    <img id="myImage3" src="images/cat4.jpg" alt="흑당">
+    <!-- 스타일변경 -->
+    <button onclick="toggleStyle()">스타일변경</button>
+    <p id="myText">이 텍스트의 스타일을 변경합니다.</p>
+    <!-- 새로운글자로변경 -->
+    <button id="changeButton" onclick="toggleText()">텍스트변경</button>
+    <!-- img -->
+    <button onclick="showImage()">이미지나타내기</button>
+    <button onclick="hideImage()">이미지숨기기</button>
+    <img id="myImage" src="images/cat3.jpg" alt="고양이" style="display: none;"">
+    <!-- script -->
+    <script>
+        // 요소나타내고숨기기
+        function sayHello(){
+            console.log("안녕하세요")
+        }
+        function showAlert(){
+            alert("경고입니다")
+        }
+        function showElement(){
+            const element = document.getElementById("myElement")
+            element.style.display = "block";
+        }
+        function hideElement(){
+            const element = document.getElementById("myElement")
+            element.style.display = "none";
+        }
+        // 토글
+        function toggleVisibility(){
+            const element = document.getElementById("myElement2")
+            element.style.display =(element.style.display === "none") ?"block" : "none";
+            // 조건연산자일때 조건 ? 조건이 true 일때 : 조건이 false 일때
+        }
+        // function toggleImage(){
+        //     const image = document.getElementById("myImage2")
+        //     image.style.display =(image.style.display === "none") ?"block" : "none";
+        //     // 조건연산자일때 조건 ? 조건이 true 일때 : 조건이 false 일때
+        // }
+        // 토글이미지
+        function toggleImage(){
+            const image = document.getElementById("myImage2");
+            if (image.style.display === "none"){
+                image.style.display = "block";
+            } else {
+                image.style.display = "none";
+            }
+        }
+        // 이미지변경코드
+        let isImageToggled = false;
+        function changeImg() {
+            var image = document.getElementById("myImage3")
+            if(isImageToggled){
+                image.src = "images/cat4.jpg";
+                image.alt = "흑당";
+                isImageToggled = false;
+            }
+            else{
+                image.src = "images/cat.jpg";
+                image.alt = "고양이";
+                isImageToggled = true;
+            }
+        }
+        // 스타일변경코드
+        let isStyleToggled = false;
+        function toggleStyle() {
+            var text = document.getElementById("myText")
+            if(isStyleToggled){
+                text.style.color = "";
+                text.style.fontSize ="";
+                text.style.fontWeight = "";
+                isStyleToggled = false;
+            }
+            else{
+                text.style.color = "blue";
+                text.style.fontSize ="30px";
+                text.style.fontWeight = "bold";
+                isStyleToggled = true;
+            }
+        }
+        // newtext
+        let isTextToggled = false;
+        function toggleText() {
+            let button = document.getElementById("changeButton");
+            if(isTextToggled){
+                button.innerText ="텍스트 변경"
+                isTextToggled = false;
+            }
+            else{
+                button.innerText ="새로운텍스트";
+                isTextToggled = true;
+            }
+        }.
+        // img
+        function showImage(){
+            const image = document.getElementById("myImage")
+            image.style.display = "block";
+        }
+        function hideImage(){
+            const image = document.getElementById("myImage")
+            image.style.display = "none";
+        }
+    </script>
+</body>
+</html>
